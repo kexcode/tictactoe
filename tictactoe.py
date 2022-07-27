@@ -16,6 +16,11 @@ class Board:
             self.cell_dict[cell] = ''
 
     def state(self):
-        print('Current board:\n')
+        print('Indexing:\t\t\tCurrent board:')
+        list_to_print = []
+        dimention = self.dimention
         for cell in self.cell_dict:
-            print('{} | '.format(self.cell_dict[cell]))
+            list_to_print.append(self.cell_dict[cell])
+        for index in range(dimention):
+            index_list = [str(x + 1) for x in range(dimention * index, dimention * (index + 1))]
+            print('[', ' | '.join(index_list), ']\t\t\t[', ' | '.join(list_to_print[dimention * index : dimention * (index + 1)]),']')
